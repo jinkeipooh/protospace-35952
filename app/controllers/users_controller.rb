@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
+    prototype = Prototype.find(params[:id])
+    @user = prototype.user
     @prototypes = @user.prototypes  ##@userに関するprototypesテーブルの情報を取得
   end
 

@@ -31,8 +31,8 @@ class PrototypesController < ApplicationController
 
   def update
     @prototype = Prototype.find(params[:id])        ##どこのデータを編集するのか指定
-    if @prototype.update(prototype_params)
-      redirect_to @prototype_path
+    if @prototype.update(prototype_params)          ##この時点で取得したデータを挿入
+      redirect_to prototype_path
     else
       render :edit
      end
