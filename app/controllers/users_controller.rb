@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    prototype = Prototype.find(params[:id])
-    @user = prototype.user
+    @user = User.find(params[:id]) ##prototype_controllerのindex, _prototype, showから各々userを指定するidを受け取っている。
     @prototypes = @user.prototypes  ##@userに関するprototypesテーブルの情報を取得
   end
 
