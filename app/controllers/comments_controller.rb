@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
       redirect_to prototype_path(@comment.prototype_id)  #:prototype_idは /prototypes/:prototype_id/comments(.:format)   comments#create(URIパターン)からきている。→というか、commentテーブルのprototype_id
     else
       @prototype = Prototype.find(@comment.prototype_id)   #protypesコントローラーとクラスが違うので、改めて定義しなければならない
-      # @comment = Comment.new   #protypesコントローラーとクラスが違うので、改めて定義しなければならない
+      @comments = @prototype.comments.includes(:user)   #protypesコントローラーとクラスが違うので、改めて定義しなければならない
       render "prototypes/show"
     end
   end
